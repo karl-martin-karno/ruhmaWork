@@ -7,6 +7,7 @@ public class KiviPaberKäärid {
         //arvatavasti Stringi, et saaks võrrelda meie valikud ja arvutit.
 
         double suvalinearv = Math.random();
+        String valik;
         if (suvalinearv < 0.33)
             System.out.println("kivi");
         if (suvalinearv > 0.33 && suvalinearv < 0.66)
