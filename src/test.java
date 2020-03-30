@@ -2,6 +2,7 @@ public class test {
     public static void main(String[] args) {
         boolean alusta = false;
         while (alusta == false) {
+
             alusta = KiviPaberKäärid.mänguAlustamisKontroll();
         }
         boolean mängime = true;
