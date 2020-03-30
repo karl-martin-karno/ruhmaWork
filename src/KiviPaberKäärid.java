@@ -36,8 +36,51 @@ public class KiviPaberKäärid {
 
     }
 
+    public static String tulemus() {
+        String inimeseValik = KiviPaberKäärid.inimeseValik();
+        String arvutiValik = KiviPaberKäärid.arvutiValik();
+        String võitja = "Pole";
+
+        if (inimeseValik.equalsIgnoreCase(arvutiValik)) {
+            võitja = "Viik";
+            return võitja;
+        } else if (inimeseValik.equalsIgnoreCase("kivi")) {
+            if (arvutiValik.equalsIgnoreCase("paber")) {
+                võitja = "Arvuti";
+                return võitja;
+
+            } else {
+                võitja = "Sina";
+                return võitja;
+            }
+
+        } else if (inimeseValik.equalsIgnoreCase("paber")) {
+            if (arvutiValik.equalsIgnoreCase("käärid")) {
+                võitja = "Arvuti";
+                return võitja;
+
+            } else {
+                võitja = "Sina";
+                return võitja;
+
+            }
+
+        } else if (inimeseValik.equalsIgnoreCase("käärid")) {
+            if (arvutiValik.equalsIgnoreCase("kivi")) {
+                võitja = "Arvuti";
+                return võitja;
 
 
+            } else {
+                võitja = "Sina";
+                return võitja;
+
+            }
+        }
+        return võitja;
+
+
+    }
 
 }
 
