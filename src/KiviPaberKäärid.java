@@ -1,4 +1,4 @@
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class KiviPaberKäärid {
@@ -28,7 +28,7 @@ public class KiviPaberKäärid {
 
     }
 
-    public static String inimeseValik() {
+    public static String inimeseValikuKüsimine() {
         System.out.println("Tee oma valik: kivi, paber või käärid?");
         Scanner in = new Scanner(System.in);
         String meieOtsus = in.nextLine();
@@ -36,10 +36,33 @@ public class KiviPaberKäärid {
 
     }
 
+    public static String inimeseValikuKontroll() {
+        boolean kasSobib = false;
+        String inimeseOtsus = null;
+        while (kasSobib == false) {
+            String inimeseOtsus2 = inimeseValikuKüsimine();
+            if (!inimeseOtsus2.equalsIgnoreCase("kivi") && !inimeseOtsus2.equalsIgnoreCase("paber")
+                    && !inimeseOtsus2.equalsIgnoreCase("käärid")) {
+                System.out.println("See valik ei sobi. Palun proovi uuesti");
+
+            } else {
+                kasSobib = true;
+                return inimeseOtsus2;
+            }
+        }
+        return inimeseOtsus;
+    }
+
+    public static String inimeseValik() {
+        String otsus = inimeseValikuKontroll();
+        return otsus;
+    }
+
     public static String tulemus() {
+
         String inimeseValik = KiviPaberKäärid.inimeseValik();
         String arvutiValik = KiviPaberKäärid.arvutiValik();
-        String võitja = "Pole";
+        String võitja = null;
 
         if (inimeseValik.equalsIgnoreCase(arvutiValik)) {
             võitja = "Viik";
@@ -78,6 +101,30 @@ public class KiviPaberKäärid {
             }
         }
         return võitja;
+
+
+    }
+
+    public static boolean mänguAlustamisKontroll() {
+        System.out.println("Tere tulemast.");
+        System.out.println("Kas on oled valmis: Jah/Ei ?");
+
+        Scanner in2 = new Scanner(System.in);
+        String otsus = in2.nextLine();
+        if (otsus.equalsIgnoreCase("Jah"))
+            return true;
+        else
+            return false;
+
+    }
+
+    public static boolean mängimiseKontroll() {
+        Scanner in2 = new Scanner(System.in);
+        String otsus2 = in2.nextLine();
+        if (otsus2.equalsIgnoreCase("Stop"))
+            return false;
+        else
+            return true;
 
 
     }
