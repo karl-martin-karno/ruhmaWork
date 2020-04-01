@@ -34,11 +34,12 @@ public class Mängija {
                 String rida = sc.nextLine();
                 String[] poolitatud = rida.split("; ");
                 String mängija = poolitatud[0];
-                this.võite = Integer.parseInt(poolitatud[1]);
-                this.viike = Integer.parseInt(poolitatud[2]);
-                this.kaotusi = Integer.parseInt(poolitatud[3]);
+
 
                 if (nimi.equalsIgnoreCase(mängija)) {
+                    this.võite = Integer.parseInt(poolitatud[1]);
+                    this.viike = Integer.parseInt(poolitatud[2]);
+                    this.kaotusi = Integer.parseInt(poolitatud[3]);
                     kontroll = true;
                     break;
 
