@@ -9,45 +9,60 @@ import java.util.Scanner;
 public class Mängija {
     private String nimi;
     private int võite;
+    private int viike;
     private int kaotusi;
 
     public Mängija(String nimi) {
         this.nimi = nimi;
         this.võite = 0;
+        this.viike = 0;
         this.kaotusi = 0;
     }
 
     public boolean kontrolliFailist() throws FileNotFoundException {
+
         boolean kontroll = false;
+
         Scanner in = new Scanner(System.in);
         this.nimi = in.nextLine();
         java.io.File fail = new java.io.File("mängijad.txt");
+
         try (Scanner sc = new Scanner(fail, "UTF-8")) {
+
             while (sc.hasNextLine()) {
+
                 String rida = sc.nextLine();
                 String[] poolitatud = rida.split("; ");
                 String mängija = poolitatud[0];
                 this.võite = Integer.parseInt(poolitatud[1]);
-                this.kaotusi = Integer.parseInt(poolitatud[2]);
+                this.viike = Integer.parseInt(poolitatud[2]);
+                this.kaotusi = Integer.parseInt(poolitatud[3]);
+
                 if (nimi.equalsIgnoreCase(mängija)) {
                     kontroll = true;
                     break;
+
                 }
             }
         }
+
         return kontroll;
     }
 
     public void kirjutaFaili() throws IOException {
+
         Path faili_koht = Paths.get("", "mängijad.txt");
         List<String> failisisu = new ArrayList<>(Files.readAllLines(faili_koht, StandardCharsets.UTF_8));
-        String andmed = nimi + "; " + võite + "; " + kaotusi;
+        String andmed = nimi + "; " + võite + "; " + viike + "; " + kaotusi;
+
         for (int i = 0; i < failisisu.size(); i++) {
+
             if (failisisu.get(i).split("; ")[0].equalsIgnoreCase(nimi)) {
+
                 failisisu.set(i, andmed);
                 break;
-            }
 
+            }
         }
 
         failisisu.add(andmed);
@@ -57,10 +72,30 @@ public class Mängija {
     }
 
     public void mängijaKontroll() throws FileNotFoundException {
+
         System.out.println("Sisesta oma nimi: ");
+
         if (kontrolliFailist()) {
+
+            System.out.println("Kasutaja leitud.");
             System.out.println(toString());
+            System.out.println("Kas soovid oma eelnevad tulemused nullida? (Jah/Ei)");
+            Scanner in = new Scanner(System.in);
+
+            if (in.nextLine().equalsIgnoreCase("Jah")) {
+
+                setKaotusi(0);
+                setViike(0);
+                setVõite(0);
+
+            }
+
+        } else {
+
+            System.out.println("Koostasin kasutaja.");
+
         }
+
     }
 
 
@@ -84,13 +119,21 @@ public class Mängija {
         this.kaotusi = kaotusi;
     }
 
+    public int getViike() {
+        return viike;
+    }
+
+    public void setViike(int viike) {
+        this.viike = viike;
+    }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Mängija nimi: ");
         sb.append(nimi);
-        sb.append(", võite: ").append(võite);
-        sb.append(", kaotusi: ").append(kaotusi).append(".");
+        sb.append(" | Võite: ").append(võite);
+        sb.append(" | Viike: ").append(viike);
+        sb.append(" | Kaotusi: ").append(kaotusi);
         return sb.toString();
     }
 }
