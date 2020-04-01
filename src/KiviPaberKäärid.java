@@ -69,33 +69,33 @@ public class KiviPaberKäärid {
             return võitja;
         } else if (inimeseValik.equalsIgnoreCase("kivi")) {
             if (arvutiValik.equalsIgnoreCase("paber")) {
-                võitja = "Arvuti";
+                võitja = "Kaotus";
                 return võitja;
 
             } else {
-                võitja = "Sina";
+                võitja = "Võit";
                 return võitja;
             }
 
         } else if (inimeseValik.equalsIgnoreCase("paber")) {
             if (arvutiValik.equalsIgnoreCase("käärid")) {
-                võitja = "Arvuti";
+                võitja = "Kaotus";
                 return võitja;
 
             } else {
-                võitja = "Sina";
+                võitja = "Võit";
                 return võitja;
 
             }
 
         } else if (inimeseValik.equalsIgnoreCase("käärid")) {
             if (arvutiValik.equalsIgnoreCase("kivi")) {
-                võitja = "Arvuti";
+                võitja = "Kaotus";
                 return võitja;
 
 
             } else {
-                võitja = "Sina";
+                võitja = "Võit";
                 return võitja;
 
             }
@@ -104,6 +104,7 @@ public class KiviPaberKäärid {
 
 
     }
+
 
     public static boolean mänguAlustamisKontroll() {
         System.out.println("Tere tulemast.");

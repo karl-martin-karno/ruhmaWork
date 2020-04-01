@@ -23,15 +23,16 @@ public class Mängija {
     public boolean kontrolliFailist() {
         boolean kontroll = false;
         Scanner in = new Scanner(System.in);
-        String nimi = in.nextLine();
-        this.nimi = nimi;
-        java.io.File fail = new java.io.File("C:\\Users\\Juss\\Desktop\\Tartu Ülikoool\\ruhmaWork\\src\\mängijad.txt");
+        this.nimi = in.nextLine();
+        java.io.File fail = new java.io.File("mängijad.txt");
         try (Scanner sc = new Scanner(fail, "UTF-8")) {
             while (sc.hasNextLine()) {
                 String rida = sc.nextLine();
                 String[] poolitatud = rida.split("; ");
                 String mängija = poolitatud[0];
-                if (nimi == mängija) {
+                this.võite = Integer.parseInt(poolitatud[1]);
+                this.kaotusi = Integer.parseInt(poolitatud[2]);
+                if (nimi.equalsIgnoreCase(mängija)) {
                     kontroll = true;
                     break;
                 }
@@ -44,20 +45,20 @@ public class Mängija {
     }
 
     public void kirjutaFaili() throws IOException {
-        Path faili_koht = Paths.get("C:\\Users\\Juss\\Desktop\\Tartu Ülikoool\\ruhmaWork\\src", "mängijad.txt");
+        Path faili_koht = Paths.get("", "mängijad.txt");
         List<String> failisisu = new ArrayList<>(Files.readAllLines(faili_koht, StandardCharsets.UTF_8));
-
+        String andmed = nimi + "; " + võite + "; " + kaotusi;
         for (int i = 0; i < failisisu.size(); i++) {
             if (failisisu.get(i).split("; ")[0].equals(nimi)) {
-                failisisu.set(i, nimi + "; " + võite + "; " + kaotusi);
+                failisisu.set(i, andmed);
                 break;
             }
 
         }
 
+        failisisu.add(andmed);
         Files.write(faili_koht, failisisu, StandardCharsets.UTF_8);
-        String andmed = nimi + "; " + võite + "; " + kaotusi;
-        Files.write(faili_koht, Collections.singleton(andmed), StandardCharsets.UTF_8);
+
         System.out.println(toString());
     }
 
@@ -92,11 +93,10 @@ public class Mängija {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Mängija{");
-        sb.append("nimi='").append(nimi).append('\'');
-        sb.append(", võite=").append(võite);
-        sb.append(", kaotusi=").append(kaotusi);
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("Mängija nimi: ");
+        sb.append(nimi);
+        sb.append(", võite: ").append(võite);
+        sb.append(", kaotusi: ").append(kaotusi).append(".");
         return sb.toString();
     }
 }

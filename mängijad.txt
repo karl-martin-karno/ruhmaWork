@@ -1,0 +1,5 @@
+madis; 1; 0
+inimene; 0; 0
+ülo; 2; 0
+jaanus; 0; 0
+marit; 1; 3

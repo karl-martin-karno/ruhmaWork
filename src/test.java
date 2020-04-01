@@ -12,8 +12,16 @@ public class test {
         }
         boolean mängime = true;
         while (mängime == true) {
+            String tulemus = KiviPaberKäärid.tulemus();
 
-            System.out.println("Võitja on: " + KiviPaberKäärid.tulemus());
+            if (tulemus == "Võit") {
+                mängija.setVõite(mängija.getVõite() + 1);
+            } else if (tulemus == "Kaotus") {
+                mängija.setKaotusi(mängija.getKaotusi() + 1);
+            }
+
+
+            System.out.println("Mängu tulemus: " + tulemus);
             System.out.println("Kui soovid lõpetada, kirjuta stop. Kui jätkad, pane enter");
             mängime = KiviPaberKäärid.mängimiseKontroll();
         }
