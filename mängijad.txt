@@ -7,4 +7,5 @@ Inimene; 1; 2; 4
 Ülo; 1; 0; 0
 Juss; 1; 0; 1
 Juss; 1; 0; 1
-karl; 0; 1; 0
+karl; 0; 0; 1
+karl; 0; 0; 1
