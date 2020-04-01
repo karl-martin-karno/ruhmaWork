@@ -1,11 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +17,7 @@ public class Mängija {
         this.kaotusi = 0;
     }
 
-    public boolean kontrolliFailist() {
+    public boolean kontrolliFailist() throws FileNotFoundException {
         boolean kontroll = false;
         Scanner in = new Scanner(System.in);
         this.nimi = in.nextLine();
@@ -37,9 +34,6 @@ public class Mängija {
                     break;
                 }
             }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
         return kontroll;
     }
@@ -49,7 +43,7 @@ public class Mängija {
         List<String> failisisu = new ArrayList<>(Files.readAllLines(faili_koht, StandardCharsets.UTF_8));
         String andmed = nimi + "; " + võite + "; " + kaotusi;
         for (int i = 0; i < failisisu.size(); i++) {
-            if (failisisu.get(i).split("; ")[0].equals(nimi)) {
+            if (failisisu.get(i).split("; ")[0].equalsIgnoreCase(nimi)) {
                 failisisu.set(i, andmed);
                 break;
             }
@@ -62,7 +56,7 @@ public class Mängija {
         System.out.println(toString());
     }
 
-    public void mängijaKontroll() {
+    public void mängijaKontroll() throws FileNotFoundException {
         System.out.println("Sisesta oma nimi: ");
         if (kontrolliFailist()) {
             System.out.println(toString());
