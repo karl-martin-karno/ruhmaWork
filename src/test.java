@@ -2,6 +2,7 @@ import java.io.IOException;
 
 public class test {
     public static void main(String[] args) throws IOException {
+
         Mängija mängija = new Mängija("Mängija");
         mängija.mängijaKontroll();
         boolean alusta = false;
@@ -25,12 +26,12 @@ public class test {
 
 
             System.out.println("Mängu tulemus: " + tulemus);
-            System.out.println("Kui soovid lõpetada, kirjuta stop. Kui jätkad, pane enter");
+            System.out.println("Kui soovid lõpetada, kirjuta stop." +
+                    " Kui soovid jätkata, vajuta suvalist klahvi");
             mängime = KiviPaberKäärid.mängimiseKontroll();
         }
 
         mängija.kirjutaFaili();
-
 
     }
 }

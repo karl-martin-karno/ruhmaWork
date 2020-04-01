@@ -108,7 +108,7 @@ public class KiviPaberKäärid {
 
     public static boolean mänguAlustamisKontroll() {
         System.out.println("Tere tulemast.");
-        System.out.println("Kas on oled valmis: Jah/Ei ?");
+        System.out.println("Kas  oled valmis: Jah/Ei ?");
 
         Scanner in2 = new Scanner(System.in);
         String otsus = in2.nextLine();
