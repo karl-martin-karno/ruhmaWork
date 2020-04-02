@@ -1,28 +1,18 @@
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class KiviPaberKäärid {
 
 
     public static String arvutiValik() {
-        String arvutiOtsus;
-                                                //Suvalise arvu genereerimine ja sellest arvuti valiku saamine.
-        double suvalinearv = Math.random();
 
-        if (suvalinearv < 0.33) {
 
-            arvutiOtsus = "kivi";
-            System.out.println(arvutiOtsus);
+        String[] valikud = {"kivi", "paber", "käärid"};
 
-        } else if (suvalinearv > 0.33 && suvalinearv < 0.66) {
+        String arvutiOtsus = (valikud[new Random().nextInt(valikud.length)]);
 
-            arvutiOtsus = "käärid";
-            System.out.println(arvutiOtsus);
-        } else {
-
-            arvutiOtsus = "paber";
-            System.out.println(arvutiOtsus);
-        }
+        System.out.println(arvutiOtsus);
         return arvutiOtsus;
 
 
@@ -112,20 +102,14 @@ public class KiviPaberKäärid {
 
         Scanner in2 = new Scanner(System.in);
         String otsus = in2.nextLine();
-        if (otsus.equalsIgnoreCase("Jah"))
-            return true;
-        else
-            return false;
+        return otsus.equalsIgnoreCase("Jah");
 
     }
 
     public static boolean mängimiseKontroll() { //Meetod võtmesõna kontrollimiseks
         Scanner in2 = new Scanner(System.in);
         String otsus2 = in2.nextLine();
-        if (otsus2.equalsIgnoreCase("Stop"))
-            return false;
-        else
-            return true;
+        return !otsus2.equalsIgnoreCase("Stop");
 
 
     }
