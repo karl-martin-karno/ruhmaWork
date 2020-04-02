@@ -45,7 +45,7 @@ Robert tegeles Mängija.java klassi tegemisega ja test.java . Ajakulu umbkaudu s
 Projekti oleks kindlasti olnud teha veidi mugavam, kui oleks vähemalt ühe korra saanud kokku, ideed kaardistada ja midagi
 juba koos alustada. Aga õnneks sai ilma selleta ka hästi hakkama. Edasi on siit kindlasti lihtsam minna.
 
-Tulemusega oleme täitsa rahul ja plaan seda ka edasi arendada ja lisada graafiline pool ja listada klasse ja meetodeid.
+Tulemusega oleme täitsa rahul ja plaan seda ka edasi arendada ja lisada graafiline pool ja lisada klasse ja meetodeid.
 
 Testisime programmi ja meetodite tööd pidevalt. Kui uus meetod valmis, proovisime kas töötab ja ega eelmiste töö pole uue
 meetodi tõttu häiritud. Sellega oli pidevalt kindlustatud, et kirjas olevad meetodid on töötavad.

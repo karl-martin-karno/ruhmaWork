@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class KiviPaberKäärid {
 
 
-    public static String arvutiValik() {
+    public static String arvutiValik() {//Arvuti valiku genereerimine random abil.
 
 
         String[] valikud = {"kivi", "paber", "käärid"};
@@ -29,7 +29,7 @@ public class KiviPaberKäärid {
     public static String inimeseValikuKontroll() { // Kontroll, et inimese valik sobib.
         boolean kasSobib = false;
         String inimeseOtsus = null;
-        while (kasSobib == false) {
+        while (kasSobib == false) { // Käib nii kaua kuni sobiv sisestus pandud.
             String inimeseOtsus2 = inimeseValikuKüsimine();
             if (!inimeseOtsus2.equalsIgnoreCase("kivi") && !inimeseOtsus2.equalsIgnoreCase("paber")
                     && !inimeseOtsus2.equalsIgnoreCase("käärid")) {

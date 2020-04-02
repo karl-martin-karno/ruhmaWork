@@ -3,8 +3,9 @@ import java.io.IOException;
 public class test {
     public static void main(String[] args) throws IOException {
 
-        Mängija mängija = new Mängija("Mängija");
+        Mängija mängija = new Mängija("Mängija");//Mängija loomine.
         mängija.mängijaKontroll();
+
         boolean alusta = false;
         while (alusta == false) {
 
@@ -14,7 +15,7 @@ public class test {
         boolean mängime = true; //Programm käib nii kaua kuni sisestatakse võtmesõna.
         while (mängime == true) {
 
-            String tulemus = KiviPaberKäärid.tulemus();
+            String tulemus = KiviPaberKäärid.tulemus();//Tulemuse saamine ja talletamine.
 
             if (tulemus == "Võit") {
                 mängija.setVõite(mängija.getVõite() + 1);
