@@ -8,10 +8,10 @@ public class test {
         boolean alusta = false;
         while (alusta == false) {
 
-            alusta = KiviPaberKäärid.mänguAlustamisKontroll();
+            alusta = KiviPaberKäärid.mänguAlustamisKontroll(); // Kontrollitakse kas mängija on valmis.
 
         }
-        boolean mängime = true;
+        boolean mängime = true; //Programm käib nii kaua kuni sisestatakse võtmesõna.
         while (mängime == true) {
 
             String tulemus = KiviPaberKäärid.tulemus();
@@ -28,7 +28,7 @@ public class test {
             System.out.println("Mängu tulemus: " + tulemus);
             System.out.println("Kui soovid lõpetada, kirjuta stop." +
                     " Kui soovid jätkata, vajuta suvalist klahvi");
-            mängime = KiviPaberKäärid.mängimiseKontroll();
+            mängime = KiviPaberKäärid.mängimiseKontroll(); //Võtmesõna sisestamise kontroll.
         }
 
         mängija.kirjutaFaili();

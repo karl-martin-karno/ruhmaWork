@@ -6,7 +6,7 @@ public class KiviPaberKäärid {
 
     public static String arvutiValik() {
         String arvutiOtsus;
-
+                                                //Suvalise arvu genereerimine ja sellest arvuti valiku saamine.
         double suvalinearv = Math.random();
 
         if (suvalinearv < 0.33) {
@@ -28,7 +28,7 @@ public class KiviPaberKäärid {
 
     }
 
-    public static String inimeseValikuKüsimine() {
+    public static String inimeseValikuKüsimine() { //Inimeselt valiku saamine.
         System.out.println("Tee oma valik: kivi, paber või käärid?");
         Scanner in = new Scanner(System.in);
         String meieOtsus = in.nextLine();
@@ -36,7 +36,7 @@ public class KiviPaberKäärid {
 
     }
 
-    public static String inimeseValikuKontroll() {
+    public static String inimeseValikuKontroll() { // Kontroll, et inimese valik sobib.
         boolean kasSobib = false;
         String inimeseOtsus = null;
         while (kasSobib == false) {
@@ -58,7 +58,7 @@ public class KiviPaberKäärid {
         return otsus;
     }
 
-    public static String tulemus() {
+    public static String tulemus() { //Mõlema valiku saamine ja sellest tulemuse väljastamine.
 
         String inimeseValik = KiviPaberKäärid.inimeseValik();
         String arvutiValik = KiviPaberKäärid.arvutiValik();
@@ -106,7 +106,7 @@ public class KiviPaberKäärid {
     }
 
 
-    public static boolean mänguAlustamisKontroll() {
+    public static boolean mänguAlustamisKontroll() { //Meetod mängu alustamiseks.
         System.out.println("Tere tulemast.");
         System.out.println("Kas  oled valmis: Jah/Ei ?");
 
@@ -119,7 +119,7 @@ public class KiviPaberKäärid {
 
     }
 
-    public static boolean mängimiseKontroll() {
+    public static boolean mängimiseKontroll() { //Meetod võtmesõna kontrollimiseks
         Scanner in2 = new Scanner(System.in);
         String otsus2 = in2.nextLine();
         if (otsus2.equalsIgnoreCase("Stop"))
