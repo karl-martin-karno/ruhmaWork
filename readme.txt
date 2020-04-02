@@ -22,6 +22,19 @@ otsib kasutaja sisendist võtmesõna, et vajadusel programm peatada.
 test.java - Sealt hakkab programm jooksma.
 Peameetod jooksutab mängu seni kuni mängija soovib selle peatada. Pidevalt väljastatakse jooksva mängu tulemus.
 
+Mängija.java -
+Selle klassi eesmärk on koostada nn "mängija profiil". Juhul, kui kasutajat pole olemas, siis loob selle mängijale.
+Kasutaja on vajalik skoori salvestamiseks. Kui kasutaja on olemas, siis lihtsalt uuendab tema skoori.
+
+Meetod kontrolliFailist mõte on kontrollida tekstifailist, kas antud kasutaja on olemas või mitte. Kui on olemas,
+siis salvestab tulemused, et liita nendele juurde uued mängu tulemused.
+Meetod kirjutaFaili hakkab tööle pärast mängu lõppemist. Juhul, kui kasutaja oli olemas, siis ta muudab sellel real oleva
+tulemuse. Kui loodi uus kasutaja, siis lisatakse tekstifaili lõppu uus mängija.
+Meetod mängijaKontroll kasutab kontrolliFailist meetodit, selleks, et vaadata, kas me peame looma uue kasutaja või on mängijal
+juba kasutaja olemas. Kui kasutaja on olemas, siis on võimalus nullida oma eelnevad tulemused.
+
+See klass annab meile tulevikuks hea võimaluse teha graafilise sisselogimise ja erinevate mängude tulemuste salvestamise.
+
 Protsess:
 
 Algselt saime idee paika. Lasime selle nädala seedida ja pärast seda hakkasime tegema. Mõlemad tiimiliikmed osalesid

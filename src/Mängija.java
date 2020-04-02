@@ -12,6 +12,7 @@ public class Mängija {
     private int viike;
     private int kaotusi;
 
+    // Konstruktor
     public Mängija(String nimi) {
         this.nimi = nimi;
         this.võite = 0;
@@ -19,14 +20,18 @@ public class Mängija {
         this.kaotusi = 0;
     }
 
+
+    // Kontrollib, kas kasutaja on tekstifailis olemas.
+    // Tagastab tõeväärtuse.
     public boolean kontrolliFailist() throws FileNotFoundException {
 
         boolean kontroll = false;
 
+        // Vaatab, mis on mängija nimi ja selle paneb Mängija nimi muutujale.
         Scanner in = new Scanner(System.in);
         this.nimi = in.nextLine();
         java.io.File fail = new java.io.File("mängijad.txt");
-
+        // Hakkab järjest rea kaupa faili läbi käima
         try (Scanner sc = new Scanner(fail, "UTF-8")) {
 
             while (sc.hasNextLine()) {
@@ -35,7 +40,7 @@ public class Mängija {
                 String[] poolitatud = rida.split("; ");
                 String mängija = poolitatud[0];
 
-
+                // Kui leitakse nimi, siis pannakse võite, viike, kaotusi eelnevate tulemuste järgi.
                 if (nimi.equalsIgnoreCase(mängija)) {
                     this.võite = Integer.parseInt(poolitatud[1]);
                     this.viike = Integer.parseInt(poolitatud[2]);
@@ -50,28 +55,41 @@ public class Mängija {
         return kontroll;
     }
 
+    // Kirjutab mängu lõpus faili uue tulemuse.
     public void kirjutaFaili() throws IOException {
 
+        // Salvestan faili asukoha, failisisu ja mängija andmed.
+        boolean onfailis = false;
         Path faili_koht = Paths.get("", "mängijad.txt");
         List<String> failisisu = new ArrayList<>(Files.readAllLines(faili_koht, StandardCharsets.UTF_8));
         String andmed = nimi + "; " + võite + "; " + viike + "; " + kaotusi;
 
+        // Käib järjest faili läbi
         for (int i = 0; i < failisisu.size(); i++) {
 
+            // Kui leiab rea, kus nimi on sama, mis mängija nimi, mis ta sisestas.
             if (failisisu.get(i).split("; ")[0].equalsIgnoreCase(nimi)) {
 
+                // Uuendatakse antud rida uute andmetega.
                 failisisu.set(i, andmed);
+                onfailis = true;
                 break;
 
             }
         }
 
-        failisisu.add(andmed);
+        // Kui polnud failis, siis lisab faili lõppu uue kasutaja andmed.
+        if (!onfailis) {
+            failisisu.add(andmed); }
+
+        // Kirjutab lõpliku failisisu mängijad.txt faili.
         Files.write(faili_koht, failisisu, StandardCharsets.UTF_8);
 
+        // Väljastab mängija tulemuse.
         System.out.println(toString());
     }
 
+    // Niinimetatud alus. Küsib nime ja kasutab kontrolliFailist. Kui oli failis, siis on võimalus tulemusi nullida.
     public void mängijaKontroll() throws FileNotFoundException {
 
         System.out.println("Sisesta oma nimi: ");
